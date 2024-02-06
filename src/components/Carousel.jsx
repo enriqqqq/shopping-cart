@@ -37,7 +37,7 @@ function Carousel() {
     };
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-testid="carousel-container">
             <div className={styles.slider_wrapper}>
                 <div className={styles.slider}>
                     {
