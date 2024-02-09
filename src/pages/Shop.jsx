@@ -2,6 +2,7 @@ import Header from '../components/Header';
 import Card from '../components/Card';
 import { getData, getFromCategory, getCategories } from '../data';
 import { useEffect, useState } from 'react';
+import propTypes from 'prop-types';
 import styles from './Shop.module.css';
 
 function Shop() {
@@ -40,11 +41,9 @@ function Shop() {
                 setData(data);
             }
             setLoading(false);
-            console.log(category);
         })();
     }, [category]);
 
-    console.log(data)
     return (
         <div className={styles.root}>
             <Header />
@@ -56,10 +55,15 @@ function Shop() {
                             <div className={styles.categories}>
                                 <h1>Categories</h1>
                                 <ul className={styles.list}>
-                                    <li className={category === 'all' && styles.selected} onClick={() => handleCategoryChange('all')}>All</li>
+                                    <li className={`${category === 'all' ? styles.selected : undefined} ${styles.category_item}`} onClick={() => handleCategoryChange('all')}>All</li>
                                     {categories.map((ctgr) => {
                                         return (
-                                            <li className={ctgr === category && styles.selected} key={ctgr} onClick={() => handleCategoryChange(ctgr)}>{capitalizeFirstLetter(ctgr)}</li>
+                                            <li 
+                                                className={`${ctgr === category ? styles.selected : undefined} ${styles.category_item}`} 
+                                                key={ctgr} 
+                                                onClick={() => handleCategoryChange(ctgr)}>
+                                                    {capitalizeFirstLetter(ctgr)}
+                                            </li>
                                         )
                                     })}
                                 </ul>
@@ -106,3 +110,7 @@ function Shop() {
 }
 
 export default Shop;
+
+Shop.propTypes = {
+    HandleAddToCart: propTypes.func,
+}

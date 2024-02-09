@@ -27,10 +27,31 @@
     align-items: center;
 }
 
-/* 
-.desc {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+.form_container {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
-} */
+}
+
+.number_input_container {
+    display: flex;
+    gap: 10px;
+}
+
+.input_number::-webkit-inner-spin-button,
+.input_number::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input_number {
+    width: 1.5rem;
+    padding: 4px;
+    text-align: center;
+}
+
+.dec_inc_btn {
+    height: 100%;
+    width: calc(1.5rem + 4px);
+    cursor: pointer;
+}
