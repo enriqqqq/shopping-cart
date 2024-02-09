@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 export const CartContext = createContext({
     cart: [],
     addToCart: () => {},
+    clearCart: () => {},
     showCart: false,
     setShowCart: () => {},
 });
@@ -34,9 +35,13 @@ export function CartProvider({ children }) {
 
     setCart(newCart);
   };
+
+  const clearCart = () => {
+    setCart([]);
+  };
   
   return (
-    <CartContext.Provider value={{ cart, addToCart, showCart, setShowCart }}>
+    <CartContext.Provider value={{ cart, addToCart, showCart, setShowCart, clearCart }}>
         {children}
       </CartContext.Provider>
     );

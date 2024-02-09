@@ -3,7 +3,7 @@ import styles from "./Cart.module.css";
 import { IoMdClose } from "react-icons/io";
 
 function Cart() {
-    const { cart, showCart, setShowCart } = useCart();
+    const { cart, showCart, setShowCart, clearCart } = useCart();
 
     return (
         <>
@@ -26,14 +26,18 @@ function Cart() {
                                     </div>
                                     <div>
                                         <h3>{item.title}</h3>
-                                        <p>Amount: {item.amount}</p>
                                         <p>Price: ${item.price * item.amount}</p>
+
+                                        <p>Amount: {item.amount}</p>
                                     </div>
                                 </li>
                             )
                         })
                     }
                 </ul>
+                <div className={styles.clear_ctn}>
+                    <p className={styles.clear_btn} onClick={clearCart}>Clear</p>
+                </div>
                 <button className={styles.checkout_btn}>Checkout</button>
             </div>
         </>

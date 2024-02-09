@@ -66,8 +66,22 @@
     object-fit: contain;
 }
 
-.checkout_btn {
+.clear_ctn {
     margin-top: auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.clear_btn {
+    cursor: pointer;
+}
+
+.clear_btn:hover {
+    color: red;
+}
+
+.checkout_btn {
     padding: 10px;
     border: none;
     cursor: pointer;
