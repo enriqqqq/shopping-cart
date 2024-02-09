@@ -1,4 +1,4 @@
-import { useCart } from "../CartContext";
+import { useCart } from "../useCart";
 import styles from "./Cart.module.css";
 import { IoMdClose } from "react-icons/io";
 
@@ -7,7 +7,7 @@ function Cart() {
 
     return (
         <>
-            <div className={`${styles.overlay} ${!showCart && styles.overlay_closed}`}></div>
+            <div className={`${styles.overlay} ${!showCart && styles.overlay_closed}`} onClick={() => {setShowCart(false)}}></div>
             <div className={`${styles.modal} ${!showCart && styles.closed_modal }`}>
                 <div className={styles.modal_header}>
                     <div>

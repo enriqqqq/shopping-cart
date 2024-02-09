@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useCart } from '../CartContext.jsx';
+import { useCart } from '../useCart';
 import propTypes from 'prop-types';
 import styles from './Card.module.css';
 

@@ -1,4 +1,4 @@
-import { useCart } from '../CartContext';
+import { useCart } from '../useCart';
 import styles from './Header.module.css';
 import { MdAccountCircle } from "react-icons/md";
 import { FaShoppingCart } from "react-icons/fa";
