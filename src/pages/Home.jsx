@@ -1,16 +1,13 @@
 import Header from '../components/Header';
 import Carousel from '../components/Carousel';
 import Cart from '../components/Cart';
-import { useCart } from '../CartContext';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 
 function Home() {
-    const { showCart } = useCart();
-
     return (
         <div className={styles.root}>
-            {showCart && <Cart />}
+            <Cart />
             <Header />
             <div className={styles.body}>
                 <div className={styles.left}>

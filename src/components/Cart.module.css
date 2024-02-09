@@ -2,8 +2,16 @@
     width: 100%;
     height: 100%;
     position: fixed;
+    background-color: black;
+    opacity: 0.5;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay_closed {
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
 }
 
 .modal {
@@ -18,6 +26,13 @@
     height: 100vh;
     width: 360px;
     box-sizing: border-box;
+    transform: translateX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.closed_modal {
+    transform: translateX(360px);
+    transition: transform 0.3s ease-in-out;
 }
 
 .modal_header {

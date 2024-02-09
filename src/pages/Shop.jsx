@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import Card from '../components/Card';
+import Cart from '../components/Cart';
 import { getData, getFromCategory, getCategories } from '../data';
 import { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
@@ -47,6 +48,7 @@ function Shop() {
     return (
         <div className={styles.root}>
             <Header />
+            <Cart />
             <div className={loading ? styles.loading : styles.body}>
                 {
                     loading ? <p>Loading...</p> :

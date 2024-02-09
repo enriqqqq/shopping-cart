@@ -3,11 +3,12 @@ import styles from "./Cart.module.css";
 import { IoMdClose } from "react-icons/io";
 
 function Cart() {
-    const { cart, setShowCart } = useCart();
+    const { cart, showCart, setShowCart } = useCart();
 
     return (
-        <div className={styles.overlay}>
-            <div className={styles.modal}>
+        <>
+            <div className={`${styles.overlay} ${!showCart && styles.overlay_closed}`}></div>
+            <div className={`${styles.modal} ${!showCart && styles.closed_modal }`}>
                 <div className={styles.modal_header}>
                     <div>
                         <h2>Cart</h2>
@@ -35,7 +36,7 @@ function Cart() {
                 </ul>
                 <button className={styles.checkout_btn}>Checkout</button>
             </div>
-        </div>
+        </>
     )
 }
 
