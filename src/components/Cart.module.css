@@ -52,6 +52,7 @@
     grid-template-columns: 1fr;
     margin-top: 20px;
     gap: 10px;
+    overflow-y: auto;
 }
 
 .image_container {
@@ -117,4 +118,8 @@
 .num_input {
     display: flex;
     gap: 6px;
+}
+
+.info_group {
+    flex: 1;
 }

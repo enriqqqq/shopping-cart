@@ -23,7 +23,7 @@ function Header() {
                 <Link to="/" style={{textDecoration: 'none', color: 'inherit'}}> Home</Link>
                 <Link to="/shop" style={{textDecoration: 'none', color: 'inherit'}}>Shop</Link>
                 <div className={styles.cart_icon_wrapper}>
-                    <p className={styles.cart_counter}>{calculateTotalAmount(cart)}</p>
+                    {cart.length > 0 && <div className={styles.cart_counter}>{calculateTotalAmount(cart)}</div>}
                     <FaShoppingCart size="2.5em" className={styles.icon} onClick={() => {setShowCart(true)}}/>
                 </div>
                 <MdAccountCircle size="2.5em" />

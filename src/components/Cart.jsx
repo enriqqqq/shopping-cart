@@ -32,7 +32,7 @@ function Cart() {
                                     <div className={styles.image_container}>
                                         <img className={styles.image} src={item.image} alt={item.title} />
                                     </div>
-                                    <div>
+                                    <div className={styles.info_group}>
                                         <h3>{item.title}</h3>
                                         <p>Price: ${(item.price * item.amount).toFixed(2)}</p>
 
