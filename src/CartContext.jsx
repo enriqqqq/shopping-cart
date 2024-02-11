@@ -7,6 +7,9 @@ export const CartContext = createContext({
     clearCart: () => {},
     showCart: false,
     setShowCart: () => {},
+    removeItem: () => {},
+    incrementAmount: () => {},
+    decrementAmount: () => {},
 });
 
 export function CartProvider({ children }) {
@@ -39,9 +42,46 @@ export function CartProvider({ children }) {
   const clearCart = () => {
     setCart([]);
   };
+
+  const removeItem = (id) => {
+    const newCart = cart.filter((item) => item.id !== id);
+    setCart(newCart);
+  };
+
+  const incrementAmount = (id) => {
+    const newCart = cart.map((item) => {
+      if(item.id === id) {
+        return {
+          ...item,
+          amount: item.amount + 1,
+        };
+      }
+      return item;
+    });
+
+    setCart(newCart);
+  }
+
+  const decrementAmount = (id) => {
+    const newCart = cart.reduce((acc, item) => {
+      if(item.id === id) {
+        if(item.amount > 1) {
+          acc.push({
+            ...item,
+            amount: item.amount - 1,
+          });
+        }
+        return acc;
+      }
+      acc.push(item);
+      return acc;
+    }, []);
+
+    setCart(newCart);
+  }
   
   return (
-    <CartContext.Provider value={{ cart, addToCart, showCart, setShowCart, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, showCart, setShowCart, clearCart, removeItem, incrementAmount, decrementAmount }}>
         {children}
       </CartContext.Provider>
     );

@@ -90,3 +90,31 @@
 .icon {
     cursor: pointer;
 }
+
+.btn_group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input {
+    width: 1.5rem;
+    padding: 4px;
+    text-align: center;
+}
+
+.dec_inc_btn {
+    height: 100%;
+    width: calc(1.5rem + 4px);
+    cursor: pointer;
+}
+
+.num_input {
+    display: flex;
+    gap: 6px;
+}

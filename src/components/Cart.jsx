@@ -3,8 +3,16 @@ import styles from "./Cart.module.css";
 import { IoMdClose } from "react-icons/io";
 
 function Cart() {
-    const { cart, showCart, setShowCart, clearCart } = useCart();
-
+    const { 
+        cart, 
+        showCart, 
+        setShowCart, 
+        clearCart, 
+        incrementAmount, 
+        decrementAmount, 
+        removeItem 
+    } = useCart();
+    
     return (
         <>
             <div className={`${styles.overlay} ${!showCart && styles.overlay_closed}`} onClick={() => {setShowCart(false)}}></div>
@@ -26,9 +34,16 @@ function Cart() {
                                     </div>
                                     <div>
                                         <h3>{item.title}</h3>
-                                        <p>Price: ${item.price * item.amount}</p>
+                                        <p>Price: ${(item.price * item.amount).toFixed(2)}</p>
 
-                                        <p>Amount: {item.amount}</p>
+                                        <div className={styles.btn_group}>
+                                            <div className={styles.num_input}>
+                                                <button className={styles.dec_inc_btn} onClick={() => decrementAmount(item.id)}>-</button>
+                                                <input type="number" value={item.amount} className={styles.input} readOnly/>
+                                                <button className={styles.dec_inc_btn} onClick={() => incrementAmount(item.id)}>+</button>
+                                            </div>
+                                            <button className={styles.remove_btn} onClick={() => {removeItem(item.id)}}>Remove</button>
+                                        </div>
                                     </div>
                                 </li>
                             )
